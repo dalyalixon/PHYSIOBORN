@@ -1,4 +1,3 @@
-// src/components/Home.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -70,6 +69,7 @@ const SERVICES = [
       "Plan de soins adapté",
     ],
   },
+]; // ✅ correction : tableau bien fermé
 
 // Avis courts
 const TESTIMONIALS = [
@@ -141,16 +141,14 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Colonne droite : visuel (ta photo) */}
-         {/* Colonne droite : visuel (ta photo) */}
-<div className="rounded-3xl overflow-hidden shadow-md ring-1 ring-slate-200">
-  <img
-    src="/Homephoto.jpg"   // ✅ correct
-    alt="Cabinet PhysioBorn"
-    className="w-full h-full object-cover"
-  />
-</div>
-
+          {/* Colonne droite : visuel */}
+          <div className="rounded-3xl overflow-hidden shadow-md ring-1 ring-slate-200">
+            <img
+              src="/Homephoto.jpg"
+              alt="Cabinet PhysioBorn"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
 
