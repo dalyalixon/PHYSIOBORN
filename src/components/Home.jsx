@@ -142,10 +142,15 @@ export default function Home() {
           </div>
 
           {/* Visuel (placeholder simple) */}
-          <div className="rounded-3xl bg-white/70 ring-1 ring-slate-200 shadow-sm p-6">
-            <div className="aspect-video rounded-2xl bg-gradient-to-br from-teal-100 to-slate-100 grid place-items-center">
-              <ActivitySquare className="h-10 w-10 text-teal-600 opacity-70" />
-            </div>
+          <{/* Visuel */}
+<div className="rounded-3xl overflow-hidden shadow-md ring-1 ring-slate-200">
+  <img
+    src="/Homephoto.jpg"
+    alt="Cabinet PhysioBorn"
+    className="w-full h-full object-cover"
+  />
+</div>
+
             <p className="text-xs text-slate-500 mt-2">
               (Remplace ce bloc par une photo du cabinet ou une illustration)
             </p>
