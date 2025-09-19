@@ -6,7 +6,7 @@ import {
   Sparkles, Mail, Phone, MapPin, Quote, ArrowRight
 } from "lucide-react";
 
-/* ——— même liste que KineSite, mais on n’en affiche que 3 sur l’accueil ——— */
+/* ——— Services (on en affiche 3 sur l’accueil) ——— */
 const SERVICES = [
   {
     id: "classique",
@@ -72,7 +72,7 @@ const SERVICES = [
   },
 ];
 
-// Avis courts pour rassurer
+// Avis courts
 const TESTIMONIALS = [
   { name: "Sabrina", text: "Accueil chaleureux et explications claires. Ma douleur d’épaule a nettement diminué !" },
   { name: "Nicolas", text: "Horaires flexibles, prise en charge pro. J’ai repris le sport en confiance." },
@@ -80,7 +80,7 @@ const TESTIMONIALS = [
 ];
 
 export default function Home() {
-  const featured = ["classique", "sport", "respi"]; // 3 services phares sur l’accueil
+  const featured = ["classique", "sport", "respi"];
   const featuredServices = SERVICES.filter(s => featured.includes(s.id));
 
   return (
@@ -103,9 +103,10 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO (différent de /rdv) */}
+      {/* HERO */}
       <section className="container py-16">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
+          {/* Colonne gauche */}
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-teal-50 text-teal-700 ring-1 ring-teal-200/60">
               <Sparkles className="h-3.5 w-3.5" /> Votre kinésithérapeute à Carnières
@@ -141,19 +142,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Visuel (placeholder simple) */}
-          <{/* Visuel */}
-<div className="rounded-3xl overflow-hidden shadow-md ring-1 ring-slate-200">
-  <img
-    src="/Homephoto.jpg"
-    alt="Cabinet PhysioBorn"
-    className="w-full h-full object-cover"
-  />
-</div>
-
-            <p className="text-xs text-slate-500 mt-2">
-              (Remplace ce bloc par une photo du cabinet ou une illustration)
-            </p>
+          {/* Colonne droite : visuel (ta photo) */}
+          <div className="rounded-3xl overflow-hidden shadow-md ring-1 ring-slate-200">
+            <img
+              src="/Homephoto.jpg"
+              alt="Cabinet PhysioBorn"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
@@ -214,7 +209,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Infos pratiques */}
+      {/* Infos pratiques + CTA final */}
       <section id="contact" className="container pb-16">
         <div className="grid md:grid-cols-2 gap-6">
           <div className="rounded-2xl bg-white/80 backdrop-blur ring-1 ring-slate-200 shadow-sm">
@@ -240,7 +235,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* CTA final */}
           <div className="rounded-2xl bg-gradient-to-br from-teal-600 to-teal-700 text-white shadow-sm p-6 md:p-8">
             <h3 className="text-xl font-semibold">Prêt à réserver votre séance ?</h3>
             <p className="text-white/90 mt-2">Consultez les disponibilités et confirmez en quelques clics.</p>
