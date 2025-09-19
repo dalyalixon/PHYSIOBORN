@@ -110,20 +110,28 @@ const SERVICE_MAP = Object.fromEntries(SERVICES.map(s => [s.id, s]));
 const dayKey  = (d) => format(d, "yyyy-MM-dd");
 const timeKey = (d) => format(d, "HH:mm");
 
-function generateSlotsForDate(date, step = 30) {
+function generateSlotsForDate(date) {
   const periods = OPENING_HOURS[date.getDay()] || [];
   const now = new Date();
   const slots = [];
+
   periods.forEach(([sh, sm, eh, em]) => {
     let cur = setMinutes(setHours(new Date(date), sh), sm);
     const end = setMinutes(setHours(new Date(date), eh), em);
-    while (isBefore(cur, end)) {
-      if (!isToday(date) || isBefore(now, cur)) slots.push(new Date(cur));
-      cur = addMinutes(cur, step);
+
+    while (isBefore(addMinutes(cur, 30), end)) {
+      // on ne propose le créneau que si pas déjà passé
+      if (!isToday(date) || isBefore(now, cur)) {
+        slots.push(new Date(cur));
+      }
+      // avance de 30 min (durée du rdv) + 10 min de pause
+      cur = addMinutes(cur, 40);
     }
   });
+
   return slots;
 }
+
 
 function SectionTitle({ icon: Icon, title, subtitle }) {
   return (
