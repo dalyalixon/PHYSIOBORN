@@ -143,13 +143,15 @@ export default function Home() {
           </div>
 
           {/* Colonne droite : visuel (ta photo) */}
-          <div className="rounded-3xl overflow-hidden shadow-md ring-1 ring-slate-200">
-            <img
-              src="public/Homephoto.jpg"
-              alt="Cabinet PhysioBorn"
-              className="w-full h-full object-cover"
-            />
-          </div>
+         {/* Colonne droite : visuel (ta photo) */}
+<div className="rounded-3xl overflow-hidden shadow-md ring-1 ring-slate-200">
+  <img
+    src="/Homephoto.jpg"   // ✅ correct
+    alt="Cabinet PhysioBorn"
+    className="w-full h-full object-cover"
+  />
+</div>
+
         </div>
       </section>
 
