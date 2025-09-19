@@ -70,7 +70,6 @@ const SERVICES = [
       "Plan de soins adapté",
     ],
   },
-];
 
 // Avis courts
 const TESTIMONIALS = [
