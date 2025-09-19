@@ -2,10 +2,75 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  Stethoscope, Calendar, CheckCircle2, HeartPulse,
+  Stethoscope, Calendar, CheckCircle2,
   Sparkles, Mail, Phone, MapPin
 } from "lucide-react";
-import { SERVICES } from "./KineSite.jsx"; // 🔑 import depuis KineSite
+
+// 🔹 On garde la liste des services ici
+const SERVICES = [
+  {
+    id: "classique",
+    label: "Kinésithérapie classique",
+    duration: 30,
+    details: [
+      "Douleurs musculo-squelettiques",
+      "Mobilité & posture",
+      "Exercices personnalisés",
+    ],
+  },
+  {
+    id: "sport",
+    label: "Kinésithérapie du sport",
+    duration: 30,
+    details: [
+      "Prévention des blessures",
+      "Récupération et retour au sport",
+      "Renforcement spécifique",
+    ],
+  },
+  {
+    id: "neuro",
+    label: "Kinésithérapie neurologique",
+    duration: 30,
+    details: [
+      "AVC, SEP, Parkinson",
+      "Équilibre, marche",
+      "Rééducation fonctionnelle",
+    ],
+  },
+  {
+    id: "respi",
+    label: "Kinésithérapie respiratoire",
+    duration: 30,
+    details: [
+      "Exercices respiratoires",
+      "Drainage bronchique",
+      "Éducation thérapeutique",
+    ],
+  },
+  {
+    id: "cupping",
+    label: "Cupping (50 € — non remboursable)",
+    duration: 45,
+    price: 50,
+    reimbursable: false,
+    details: [
+      "Ventouses thérapeutiques",
+      "Relâchement myofascial",
+      "Amélioration de la circulation",
+    ],
+  },
+  {
+    id: "autre",
+    label: "Autre",
+    duration: 30,
+    details: [
+      "Besoin spécifique",
+      "Évaluation et orientation",
+      "Plan de soins adapté",
+    ],
+  },
+];
 
 export default function Home() {
   return (
@@ -74,7 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact + Footer comme avant */}
+      {/* Contact + Footer */}
       <section className="container py-14">
         <div className="rounded-2xl bg-white/80 backdrop-blur ring-1 ring-slate-200 shadow-sm p-6 md:p-8">
           <h3 className="text-xl font-semibold">Première visite ?</h3>
