@@ -1,15 +1,13 @@
-// src/pages/Home.jsx
+// src/components/Home.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import {
   Stethoscope, Calendar, CheckCircle2, HeartPulse,
   Sparkles, Mail, Phone, MapPin
 } from "lucide-react";
-import { SERVICES } from "../data/services";
+import { SERVICES } from "./KineSite.jsx"; // 🔑 import depuis KineSite
 
 export default function Home() {
-  const featured = SERVICES; // ou SERVICES.slice(0,3)
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-teal-50/40 via-white to-slate-50">
       {/* Header */}
@@ -50,21 +48,6 @@ export default function Home() {
             </Link>
             <a href="#services" className="btn btn-outline">Voir les services</a>
           </div>
-
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-slate-700">
-            <div className="rounded-xl bg-white/80 backdrop-blur ring-1 ring-slate-200 p-4">
-              <CheckCircle2 className="h-4 w-4 text-teal-600 inline mr-2" />
-              Conventionné INAMI
-            </div>
-            <div className="rounded-xl bg-white/80 backdrop-blur ring-1 ring-slate-200 p-4">
-              <CheckCircle2 className="h-4 w-4 text-teal-600 inline mr-2" />
-              Accès PMR
-            </div>
-            <div className="rounded-xl bg-white/80 backdrop-blur ring-1 ring-slate-200 p-4">
-              <CheckCircle2 className="h-4 w-4 text-teal-600 inline mr-2" />
-              Ouvert tôt & tard
-            </div>
-          </div>
         </div>
       </section>
 
@@ -72,15 +55,12 @@ export default function Home() {
       <section id="services" className="container py-14">
         <h2 className="text-2xl md:text-3xl font-semibold mb-6">Nos services</h2>
         <div className="grid md:grid-cols-3 gap-6">
-          {featured.map((s) => (
+          {SERVICES.map((s) => (
             <div key={s.id} className="rounded-2xl bg-white/80 backdrop-blur ring-1 ring-slate-200 shadow-sm p-5 hover:shadow-md transition">
-              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs bg-teal-50 text-teal-700 ring-1 ring-teal-200/60">
-                <HeartPulse className="h-5 w-5" /> Service
-              </div>
               <h3 className="mt-3 text-lg font-semibold">{s.label}</h3>
               <p className="text-slate-600 text-sm mt-1">Durée indicative : {s.duration} min</p>
               <ul className="text-sm text-slate-600 mt-3 space-y-1">
-                {s.details.slice(0,3).map((d, i) => (
+                {s.details.slice(0, 3).map((d, i) => (
                   <li key={i} className="flex gap-2 items-start">
                     <CheckCircle2 className="h-4 w-4 text-teal-600 mt-0.5" /> {d}
                   </li>
@@ -94,7 +74,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mini-contact */}
+      {/* Contact + Footer comme avant */}
       <section className="container py-14">
         <div className="rounded-2xl bg-white/80 backdrop-blur ring-1 ring-slate-200 shadow-sm p-6 md:p-8">
           <h3 className="text-xl font-semibold">Première visite ?</h3>
@@ -113,7 +93,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="border-t border-slate-200 bg-white/60 backdrop-blur">
         <div className="container py-10 text-sm flex flex-col md:flex-row items-center justify-between gap-3">
           <div className="text-slate-600">© {new Date().getFullYear()} PhysioBorn. Tous droits réservés.</div>
