@@ -145,7 +145,7 @@ export default function Home() {
           {/* Colonne droite : visuel (ta photo) */}
           <div className="rounded-3xl overflow-hidden shadow-md ring-1 ring-slate-200">
             <img
-              src="/Homephoto.jpg"
+              src="public/Homephoto.jpg"
               alt="Cabinet PhysioBorn"
               className="w-full h-full object-cover"
             />
