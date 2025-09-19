@@ -1,6 +1,5 @@
 // src/components/KineSite.jsx
 import React, { useMemo, useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Calendar, Mail, Phone, MapPin, Clock, Stethoscope,
@@ -20,7 +19,6 @@ import {
 } from "firebase/firestore";
 
 import emailjs from "@emailjs/browser";
-import { SERVICES, SERVICE_MAP } from "../data/services";
 
 // ===== ENV =====
 const EMAILJS_PUBLIC_KEY   = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -40,6 +38,73 @@ const OPENING_HOURS = {
   0: [],
 };
 const LOOKAHEAD_DAYS = 14;
+
+/* ---------- SERVICES (menu déroulant) ---------- */
+const SERVICES = [
+  {
+    id: "classique",
+    label: "Kinésithérapie classique",
+    duration: 30,
+    details: [
+      "Douleurs musculo-squelettiques",
+      "Mobilité & posture",
+      "Exercices personnalisés",
+    ],
+  },
+  {
+    id: "sport",
+    label: "Kinésithérapie du sport",
+    duration: 30,
+    details: [
+      "Prévention des blessures",
+      "Récupération et retour au sport",
+      "Renforcement spécifique",
+    ],
+  },
+  {
+    id: "neuro",
+    label: "Kinésithérapie neurologique",
+    duration: 30,
+    details: [
+      "AVC, SEP, Parkinson",
+      "Équilibre, marche",
+      "Rééducation fonctionnelle",
+    ],
+  },
+  {
+    id: "respi",
+    label: "Kinésithérapie respiratoire",
+    duration: 30,
+    details: [
+      "Exercices respiratoires",
+      "Drainage bronchique",
+      "Éducation thérapeutique",
+    ],
+  },
+  {
+    id: "cupping",
+    label: "Cupping (50 € — non remboursable)",
+    duration: 45,
+    price: 50,
+    reimbursable: false,
+    details: [
+      "Ventouses thérapeutiques",
+      "Relâchement myofascial",
+      "Amélioration de la circulation",
+    ],
+  },
+  {
+    id: "autre",
+    label: "Autre",
+    duration: 30,
+    details: [
+      "Besoin spécifique",
+      "Évaluation et orientation",
+      "Plan de soins adapté",
+    ],
+  },
+];
+const SERVICE_MAP = Object.fromEntries(SERVICES.map(s => [s.id, s]));
 
 /* ---------- UTILS ---------- */
 const dayKey  = (d) => format(d, "yyyy-MM-dd");
@@ -388,12 +453,9 @@ export default function KineSite() {
             </div>
             <span className="font-semibold tracking-tight">PhysioBorn</span>
           </div>
-          <nav className="flex items-center gap-3">
-            <Link to="/" className="text-sm text-slate-700 hover:text-teal-700">Accueil</Link>
-            <a href="#rdv" className="btn btn-primary text-sm flex items-center gap-2">
-              <Calendar className="h-4 w-4" /> RDV
-            </a>
-          </nav>
+          <a href="#rdv" className="btn btn-primary text-sm">
+            <Calendar className="h-4 w-4" /> RDV
+          </a>
         </div>
       </header>
 
@@ -536,6 +598,7 @@ export default function KineSite() {
               </div>
               <div className="p-5 text-sm space-y-1">
                 <div>Lun–Ven : 8:00 – 12:00 / 14:00 – 20:30</div>
+
               </div>
             </div>
           </div>
@@ -544,30 +607,30 @@ export default function KineSite() {
 
       {/* FOOTER */}
       <footer className="border-t border-slate-200 bg-white/60 backdrop-blur">
-        <div className="container py-10 text-sm flex flex-col md:flex-row items-center justify-between gap-3">
-          <div className="text-slate-600">© {new Date().getFullYear()} PhysioBorn — HAMACHE Dalya. Tous droits réservés.</div>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://www.instagram.com/physioborn?igsh=MXhnZmdqb3hnYW1xZA=="
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-              aria-label="Instagram PhysioBorn"
-            >
-              Instagram
-            </a>
-            <a
-              href="https://www.facebook.com/share/1CDLJ3EuXD/?mibextid=wwXIfr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-              aria-label="Facebook PhysioBorn"
-            >
-              Facebook
-            </a>
-          </div>
-        </div>
-      </footer>
+  <div className="container py-10 text-sm flex flex-col md:flex-row items-center justify-between gap-3">
+    <div className="text-slate-600">© {new Date().getFullYear()} PhysioBorn — HAMACHE Dalya. Tous droits réservés.</div>
+    <div className="flex items-center gap-4">
+      <a
+        href="https://www.instagram.com/physioborn?igsh=MXhnZmdqb3hnYW1xZA=="
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:underline"
+        aria-label="Instagram PhysioBorn"
+      >
+        Instagram
+      </a>
+      <a
+        href="https://www.facebook.com/share/1CDLJ3EuXD/?mibextid=wwXIfr"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:underline"
+        aria-label="Facebook PhysioBorn"
+      >
+        Facebook
+      </a>
+    </div>
+  </div>
+</footer>
     </div>
   );
 }
