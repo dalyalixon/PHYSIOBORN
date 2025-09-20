@@ -29,14 +29,15 @@ const CLINIC_EMAIL         = import.meta.env.VITE_CLINIC_EMAIL || "contact@physi
 
 /* ---------- OUVERTURES ---------- */
 const OPENING_HOURS = {
-  1: [[8, 0, 14, 00], [16, 15, 20, 40]], // Lundi
-  2: [[8, 0, 14, 00], [16, 15, 20, 40]], // Mardi
-  3: [[8, 0, 14, 00], [16, 15, 20, 40]], // Mercredi
-  4: [[8, 0, 14, 00], [16, 15, 20, 40]], // Jeudi
-  5: [[8, 0, 14, 00], [16, 15, 20, 40]], // Vendredi
-  6: [],                                  // Samedi fermé
-  0: [],                                  // Dimanche fermé
+  1: [[8, 0, 14, 0], [16, 15, 20, 40]], // Lundi
+  2: [[8, 0, 14, 0], [16, 15, 20, 40]], // Mardi
+  3: [[8, 0, 14, 0], [16, 15, 20, 40]], // Mercredi
+  4: [[8, 0, 14, 0], [16, 15, 20, 40]], // Jeudi
+  5: [[8, 0, 14, 0], [16, 15, 20, 40]], // Vendredi
+  6: [],                                 // Samedi fermé
+  0: [],                                 // Dimanche fermé
 };
+
 
 
 
