@@ -111,7 +111,7 @@ export default function Home() {
               <Sparkles className="h-3.5 w-3.5" /> Votre kinésithérapeute à Carnières
             </div>
             <h1 className="mt-4 text-4xl md:text-5xl font-semibold leading-tight">
-              Soulager la douleur, <span className="text-teal-700">retrouver</span> le mouvement
+              Prenez soin de votre corps, <span className="text-teal-700">il vous accompagnera </span> toute votre vie
             </h1>
             <p className="mt-4 text-slate-600">
               Bilan précis, suivi personnalisé, et exercices simples à refaire à la maison.
