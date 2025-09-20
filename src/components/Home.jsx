@@ -157,9 +157,11 @@ export default function Home() {
         <div className="rounded-2xl bg-white/80 backdrop-blur ring-1 ring-slate-200 p-6 md:p-8">
           <h2 className="text-2xl md:text-3xl font-semibold">Pourquoi nous choisir ?</h2>
           <p className="text-slate-600 mt-3 max-w-3xl">
-            Chez <strong>PhysioBorn</strong>, on prend le temps d’écouter votre histoire, d’évaluer votre
-            mobilité et d’expliquer clairement le plan de traitement. Notre objectif : vous rendre autonome
-            avec des exercices efficaces et un suivi adapté à votre rythme.
+            Chaque douleur raconte une histoire.
+            Chez <strong>PhysioBorn</strong>, nous commençons par écouter la vôtre. 
+            Puis, nous construisons ensemble un chemin vers plus de mobilité, de confiance et de bien-être.
+            Ici, pas de solutions toutes faites : seulement un accompagnement pensé pour vous.
+            Chaque douleur raconte une histoire.
           </p>
         </div>
       </section>
